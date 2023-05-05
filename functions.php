@@ -1,4 +1,5 @@
 <?php
+
 function getPassword()
 {
     $lower_case = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -11,8 +12,11 @@ function getPassword()
         $new_password = array_merge($lower_case, $upper_case, $number, $symbol);
 
         for ($i = 0; $i < $length; $i++) {
-            $rnd_index = rand(0, (count($new_password) - 1));
+            $rnd_index = rand(0, (count($new_password)));
+            session_start();
+            header('Location: password.php');
             $user_new_password = $user_new_password . $new_password[$rnd_index];
+            $_SESSION['gianni'] = $user_new_password;
         }
     }
     return $user_new_password;

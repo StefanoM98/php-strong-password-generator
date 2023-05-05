@@ -19,6 +19,8 @@ if (isset($_GET['pass-length'])) {
 //         $user_new_password = $user_new_password . $new_password[$rnd_index];
 //     }
 // }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +51,7 @@ if (isset($_GET['pass-length'])) {
                 </div>
                 <button type="submit" name="generate" class="btn btn-primary">Invia</button>
                 <button class="btn btn-secondary" type="reset">Annulla</button>
-                <h2> <?php echo $result ?> </h2>
+
             </div>
         </form>
     </div>
