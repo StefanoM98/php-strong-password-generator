@@ -1,20 +1,24 @@
 <?php
-$new_pass = [];
-$lower_case = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-$upper_case = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
-$number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-$symbol = ["!", "£", "$", "%", "&", "/", "(", ")", "=", "+", "#", ".", ","];
-$user_new_password = "";
+// $new_pass = [];
+// $lower_case = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+// $upper_case = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+// $number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// $symbol = ["!", "£", "$", "%", "&", "/", "(", ")", "=", "+", "#", ".", ","];
+// $user_new_password = "";
 
+include_once __DIR__ . "/functions.php";
 if (isset($_GET['pass-length'])) {
-    $length = $_GET['pass-length'];
-    $new_password = array_merge($lower_case, $upper_case, $number, $symbol);
-
-    for ($i = 0; $i < $length; $i++) {
-        $rnd_index = rand(0, (count($new_password) - 1));
-        $user_new_password = $user_new_password . $new_password[$rnd_index];
-    }
+    $result = getPassword($_GET['pass-length']);
 }
+// if (isset($_GET['pass-length'])) {
+//     $length = $_GET['pass-length'];
+//     $new_password = array_merge($lower_case, $upper_case, $number, $symbol);
+
+//     for ($i = 0; $i < $length; $i++) {
+//         $rnd_index = rand(0, (count($new_password) - 1));
+//         $user_new_password = $user_new_password . $new_password[$rnd_index];
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +49,7 @@ if (isset($_GET['pass-length'])) {
                 </div>
                 <button type="submit" name="generate" class="btn btn-primary">Invia</button>
                 <button class="btn btn-secondary" type="reset">Annulla</button>
-                <h2>La tua nuova password è <?php echo $user_new_password ?></h2>
+                <h2> <?php echo $result ?> </h2>
             </div>
         </form>
     </div>
