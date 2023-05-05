@@ -16,7 +16,7 @@ function getPassword()
             session_start();
             header('Location: password.php');
             $user_new_password = $user_new_password . $new_password[$rnd_index];
-            $_SESSION['gianni'] = $user_new_password;
+            $_SESSION['sure_password'] = $user_new_password;
         }
     }
     return $user_new_password;
